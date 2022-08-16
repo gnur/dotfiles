@@ -1,0 +1,14 @@
+[user]
+	name = Erwin de Keijzer
+	email = erwin@dekeijzer.xyz
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[init]
+	defaultBranch = main

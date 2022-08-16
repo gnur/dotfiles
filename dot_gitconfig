@@ -1,0 +1,25 @@
+[user]
+	name = Erwin de Keijzer
+	email = erwin@dekeijzer.xyz
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[init]
+	defaultBranch = main
+
+[includeIf "gitdir:~/code/src/gitlab.com/EDSN/"]
+  path = .gitconfig-edsn
+
+[includeIf "gitdir:~/code/src/gitlab.technolution.nl/"]
+  path = .gitconfig-edsn
+
+
+[ghq]
+  root = ~/code/src/
