@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
+  color_scheme = "Tangoesque (terminal.sexy)",
+  enable_kitty_keyboard = true,
   exit_behavior = "Close",
   hide_tab_bar_if_only_one_tab = true,
 
@@ -11,18 +13,6 @@ return {
   },
   font = wezterm.font("CaskaydiaCove Nerd Font"),
   font_size = 15.0,
-  ssh_domains = {
-    {
-      name = "sanny",
-      remote_address = "sanny.aawa.nl",
-      username = "erwin",
-    }
-  },
-  unix_domains = {
-    {
-      name = "unix",
-    }
-  },
   leader = { key="z", mods="CTRL" },
   keys = {
         -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
@@ -51,6 +41,6 @@ return {
         { key = "&", mods = "LEADER|SHIFT", action=wezterm.action{CloseCurrentTab={confirm=true}}},
         { key = "x", mods = "LEADER",       action=wezterm.action{CloseCurrentPane={confirm=true}}},
 
-        { key = "n", mods="SHIFT|CTRL",     action="ToggleFullScreen" },
+        { key = "f", mods="SHIFT|SUPER",     action="ToggleFullScreen" },
     },
 }
