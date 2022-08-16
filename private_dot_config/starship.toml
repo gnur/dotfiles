@@ -1,5 +1,4 @@
 format = """
-$username\
 $hostname\
 $shlvl\
 $singularity\
