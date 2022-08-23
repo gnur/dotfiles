@@ -15,6 +15,11 @@ func syncInstalledPackages () {
   sudo pacman -S --needed - < ~/pkglist.txt
 }
 {{ end -}}
+{{ if eq .chezmoi.osRelease.id "archarm" }}
+func syncInstalledPackages () {
+  sudo pacman -S --needed - < ~/pkglist.txt
+}
+{{ end -}}
 
 export PATH="$HOME/bin:$PATH"
 
