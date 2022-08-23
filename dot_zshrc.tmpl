@@ -10,6 +10,12 @@ export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$P
 export PATH="/Users/erwindekeijzer/code/src/github.com/gnur/scripts:/opt/homebrew/bin/:$PATH"
 {{ end -}}
 
+{{ if eq .chezmoi.osRelease.id "arch" }}
+func syncInstalledPackages () {
+  sudo pacman -S --needed - < ~/pkglist.txt
+}
+{{ end -}}
+
 export PATH="$HOME/bin:$PATH"
 
 alias vi=~/.local/bin/lvim
