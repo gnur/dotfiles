@@ -38,6 +38,27 @@ func ccd () {
   cd "$f"
 }
 
+func vietc () {
+  cd /etc
+  f=$(sudo fd --type d --hidden | fzf --no-mouse)
+  if [[ -z $f ]]; then
+    return
+  fi
+
+  sudo vi "$f"
+}
+
+func vif () {
+  cd
+  f=$(fd --type d --hidden | fzf --no-mouse)
+  if [[ -z $f ]]; then
+    return
+  fi
+
+  vi "$f"
+}
+
+
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 export EDITOR=~/.local/bin/lvim
