@@ -10,12 +10,13 @@ export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$P
 export PATH="/Users/erwindekeijzer/code/src/github.com/gnur/scripts:/opt/homebrew/bin/:$PATH"
 {{ end -}}
 
-{{ if eq .chezmoi.osRelease.id "arch" }}
+{{ if eq (index .chezmoi.osRelease "id") "arch" }}
 func syncInstalledPackages () {
   sudo pacman -S --needed - < ~/pkglist.txt
 }
 {{ end -}}
-{{ if eq .chezmoi.osRelease.id "archarm" }}
+
+{{ if eq (index .chezmoi.osRelease "id") "archarm" }}
 func syncInstalledPackages () {
   sudo pacman -S --needed - < ~/pkglist.txt
 }
@@ -41,7 +42,7 @@ alias agedec="age --decrypt -i ~/.agekey"
 
 func ccd () {
   cd
-  f=$(fd --type d --hidden | fzf --no-mouse)
+  f=$(fd --type d --hidden | fzf --ansi --no-mouse --query "$1" --preview 'exa --long --classify --icons --no-user --no-permissions {}' --preview-window up)
   if [[ -z $f ]]; then
     return
   fi
@@ -51,7 +52,7 @@ func ccd () {
 
 func vietc () {
   cd /etc
-  f=$(sudo fd --type d --hidden | fzf --no-mouse)
+  f=$(sudo fd --type f --hidden | fzf --ansi --no-mouse --query "$*" --preview 'bat --style=numbers --color=always {}')
   if [[ -z $f ]]; then
     return
   fi
@@ -61,14 +62,13 @@ func vietc () {
 
 func vif () {
   cd
-  f=$(fd --type d --hidden | fzf --no-mouse)
+  f=$(fd --type f --hidden | fzf --ansi --no-mouse --query "$*" --preview 'bat --style=numbers --color=always {}')
   if [[ -z $f ]]; then
     return
   fi
 
   vi "$f"
 }
-
 
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
