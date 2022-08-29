@@ -90,3 +90,30 @@ eval "$(starship init zsh)"
 
 bindkey -e
 eval "$(direnv hook zsh)"
+
+{{ if eq .chezmoi.hostname "PVPCOLC054" }}
+alias fd=fdfind
+
+export http_proxy="proxyprokdmzbulk:8080"
+export https_proxy="proxyprokdmzbulk:8080"
+export no_proxy="localhost, 127.0.0.1, *.belastingdienst.nl"
+export HTTP_PROXY="proxyprokdmzbulk:8080"
+export HTTPS_PROXY="proxyprokdmzbulk:8080"
+export NO_PROXY="Localhost, 127.0.0.1, *.belastingdienst.nl"
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SHELL=/usr/bin/zsh
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+eval "$(zoxide init zsh)"
+{{ end -}}
