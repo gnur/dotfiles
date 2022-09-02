@@ -69,10 +69,14 @@ $character"""
 [kubernetes]
 disabled = false
 format = ' | [$symbol$context(\($namespace\))]($style)'
+
 [kubernetes.context_aliases]
 "gke_akkoordzoeker_europe-west4-a_akkoordzoeker" = "akz"
-"default/api-rhos-ota-ynna-p1-openshiftapps-com:6443/erwin.dekeijzer" = "RHOS-OTA"
-"gke_ckad-study-359208_europe-west4_autopilot-cluster-1" = "ckad"
+
+{{ if eq .chezmoi.hostname "PVPCOLC054" }}
+".*/api-cn01-chp-belastingdienst-nl:6443/keije01" = "cn01"
+".*/api-idc-ont-belastingdienst-nl:6443/keije01" = "idc"
+{{ end }}
 
 [golang]
 format = " | [$symbol$version](bold cyan)"
