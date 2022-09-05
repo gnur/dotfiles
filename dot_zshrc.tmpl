@@ -36,6 +36,15 @@ alias x="exa --long --classify --icons --no-user --no-permissions"
 
 alias agedec="age --decrypt -i ~/.agekey"
 
+# make sure history is shared and kept for a much longer time
+setopt hist_ignore_all_dups
+setopt extended_history
+setopt inc_append_history
+setopt share_history
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
