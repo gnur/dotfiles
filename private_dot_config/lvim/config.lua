@@ -59,15 +59,22 @@ lvim.plugins = {
   { "tpope/vim-repeat" },
   { "folke/tokyonight.nvim" },
   {
-    "ggandor/lightspeed.nvim",
-    event = "BufRead",
-  },
-  {
     "Pocco81/auto-save.nvim",
     config = function()
       require("auto-save").setup {
         -- your config goes here
         -- or just leave it empty :)
+      }
+    end,
+  },
+  {
+    "rlane/pounce.nvim",
+    config = function()
+      require 'pounce'.setup {
+        accept_keys = "JFKDLSAHGNUVRBYTMICEOXWPQZ",
+        accept_best_key = "<enter>",
+        multi_window = true,
+        debug = false,
       }
     end,
   },
