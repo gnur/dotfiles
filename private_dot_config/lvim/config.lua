@@ -10,6 +10,8 @@ vim.g.neovide_cursor_vfx_particle_lifetime = 0.4
 
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["s"] = ":Pounce<CR>"
+lvim.keys.normal_mode["S"] = ":PounceRepeat<CR>"
 
 lvim.builtin.bufferline.options.indicator_icon = nil
 lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
@@ -25,7 +27,7 @@ lvim.builtin.cmp.active = true
 
 lvim.plugins = {
   { "lunarvim/colorschemes" },
-  { "folke/tokyonight.nvim" },
+  { "tiagovla/tokyodark.nvim" },
   { "tpope/vim-repeat" },
   {
     "Pocco81/auto-save.nvim",
