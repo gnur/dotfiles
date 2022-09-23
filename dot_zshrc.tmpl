@@ -99,11 +99,10 @@ znap source ellie/atuin
 
 autoload -U compinit
 compinit -i
+bindkey -e
 
 eval "$(starship init zsh)"
-
-
-bindkey -e
+eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
 
 {{ if eq .chezmoi.hostname "PVPCOLC054" }}
