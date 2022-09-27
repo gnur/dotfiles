@@ -29,6 +29,9 @@ func syncInstalledPackages () {
 {{ end -}}
 
 export PATH="$HOME/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 alias vi=lvim
 alias s="tmux attach -d || tmux"
