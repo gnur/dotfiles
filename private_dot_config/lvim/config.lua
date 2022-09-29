@@ -17,7 +17,6 @@ lvim.builtin.bufferline.options.indicator_icon = nil
 lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
 
 -- /neovide settings
-
 formatters.setup {
   { exe = "goimports" }
 }
@@ -68,7 +67,7 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 
 vim.g.tokyonight_style = "night"
-lvim.colorscheme       = "tokyonight"
+lvim.colorscheme       = "tokyodark"
 
 lvim.format_on_save = true
 lvim.lint_on_save = true
