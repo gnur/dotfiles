@@ -76,6 +76,37 @@ func vif () {
   vi "$f"
 }
 
+func erwin-enc () {
+  AGEKEY=age1lhg9rucza42kmmmtnthme35gw0tpeyqwxad5k7rl5mpyaqmk0q3s4srwvp
+
+  target="$1"
+  suffix="_$(date +%F_%T).tar.lz4.age"
+
+  if [[ ! -d "$target" ]]; then
+    echo "invalid directory provided"
+    exit 1
+  fi
+
+  targetfile="$HOME/backups/${target}${suffix}"
+
+  echo "$targetfile"
+
+  tar cf - "$target" | lz4 | age -r "$AGEKEY" > "${targetfile}"
+
+  du -sh "${target}"
+  du -sh "${targetfile}"
+}
+
+func erwin-dec () {
+  target="$1"
+
+  if [[ ! -f "$target" ]]; then
+    echo "invalid backup archive provided"
+    exit 1
+  fi
+  age --decrypt -i ~/key.txt ${target} | lz4 -d | tar xvf -
+}
+
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 export EDITOR=~/.local/bin/lvim
