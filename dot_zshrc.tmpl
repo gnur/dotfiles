@@ -86,6 +86,7 @@ func erwin-enc () {
     echo "invalid directory provided"
     exit 1
   fi
+  du -sh "${target}"
 
   targetfile="$HOME/backups/${target}${suffix}"
 
@@ -93,7 +94,6 @@ func erwin-enc () {
 
   tar cf - "$target" | lz4 | age -r "$AGEKEY" > "${targetfile}"
 
-  du -sh "${target}"
   du -sh "${targetfile}"
 }
 
