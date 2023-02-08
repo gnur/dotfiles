@@ -1,0 +1,12 @@
+theme = "tokyonight"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor]
+auto-pairs = false
+auto-save = true
+
+true-color = true
