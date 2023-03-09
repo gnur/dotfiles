@@ -22,7 +22,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-alias vi=hx
+alias vi=lvim
 alias s="tmux attach -d || tmux"
 alias z="zellij attach -c"
 alias k=kubectl
@@ -32,6 +32,12 @@ alias tf=terraform
 alias x="exa --long --classify --icons --no-user --no-permissions"
 
 alias agedec="age --decrypt -i ~/.agekey"
+
+if [ -n "$PYTHONPATH" ]; then
+    export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.4.7/libexec/lib/python3.11/site-packages/pdm/pep582':$PYTHONPATH
+else
+    export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.4.7/libexec/lib/python3.11/site-packages/pdm/pep582'
+fi
 
 # make sure history is shared and kept for a much longer time
 setopt hist_ignore_all_dups
