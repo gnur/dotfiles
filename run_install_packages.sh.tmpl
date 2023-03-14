@@ -4,7 +4,7 @@
 
 {{ if eq .chezmoi.os "darwin" -}}
 
-xargs brew install < packages.txt
+xargs brew install < {{ joinPath .chezmoi.sourceDir "packages.txt" | quote }}
 
 {{ end }}
 
