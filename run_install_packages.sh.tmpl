@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# packages hash: {{ include "packages.txt" | sha256sum }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+xargs brew install < packages.txt
+
+{{ end }}
+
+
