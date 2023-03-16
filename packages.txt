@@ -1,4 +1,6 @@
 age
+bat
+btop
 atuin
 chezmoi
 direnv
