@@ -12,6 +12,7 @@ gh
 ghq
 gitui
 htop
+jq
 k9s
 kubectx
 n
@@ -22,4 +23,5 @@ python-lsp-server
 ripgrep
 starship
 tmux
+upx
 yt-dlp
