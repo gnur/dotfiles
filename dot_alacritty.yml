@@ -855,23 +855,23 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x1c1c1c'
-    foreground: '0x808080'
+    background: '0x0c0c0c'
+    foreground: '0xf0f0f0'
 
   cursor:
-    text: '0x1c1c1c'
-    cursor: '0x808080'
+    text: '0x0c0c0c'
+    cursor: '0xf0f0f0'
 
   # Normal colors
   normal:
-    black:   '0x1c1c1c'
+    black:   '0x0c0c0c'
     red:     '0xaf005f'
     green:   '0x5faf00'
     yellow:  '0xd7af5f'
     blue:    '0x5fafd7'
     magenta: '0x808080'
     cyan:    '0xd7875f'
-    white:   '0xd0d0d0'
+    white:   '0xe0e0e0'
 
   # Bright colors
   bright:
