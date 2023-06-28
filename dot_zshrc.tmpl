@@ -14,6 +14,8 @@ if [ -f '/Users/erwindekeijzer/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 export PATH="/Users/erwindekeijzer/code/src/github.com/gnur/scripts:/opt/homebrew/bin/:$PATH"
+{{else}}
+alias hx=helix
 {{ end -}}
 
 
@@ -22,8 +24,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-alias vi=lvim
-alias s="tmux attach -d || tmux"
+alias vi=helix
 alias z="zellij attach -c"
 alias k=kubectl
 alias kctx=kubectx
@@ -69,7 +70,7 @@ func vietc () {
     return
   fi
 
-  sudo vi "$f"
+  sudo helix "$f"
 }
 
 func vif () {
@@ -79,7 +80,7 @@ func vif () {
     return
   fi
 
-  vi "$f"
+  helix "$f"
 }
 
 func erwin-enc () {
@@ -115,7 +116,7 @@ func erwin-dec () {
 
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
-export EDITOR=lvim
+export EDITOR=helix
 
 # `znap prompt` makes your prompt visible in less than 12ms!
 # znap prompt sindresorhus/pure
@@ -125,7 +126,6 @@ export EDITOR=lvim
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source ellie/atuin
-znap source laggardkernel/zsh-tmux
 
 autoload -U compinit
 compinit -i
