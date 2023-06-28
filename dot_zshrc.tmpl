@@ -1,5 +1,11 @@
 {{ if eq .chezmoi.os "darwin" -}}
 
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -11,6 +17,7 @@ if [ -f '/Users/erwindekeijzer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/erwindekeijzer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/erwindekeijzer/google-cloud-sdk/completion.zsh.inc'; fi
 
+
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 export PATH="/Users/erwindekeijzer/code/src/github.com/gnur/scripts:/opt/homebrew/bin/:$PATH"
@@ -20,6 +27,7 @@ alias hx=helix
 
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin/flutter/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
