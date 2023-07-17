@@ -131,7 +131,7 @@ func en () {
   tdir=$(mktemp -d)
   cd "${tdir}" || return 1
   #setup trap to remove this dir
-  trap 'rm -rf -- "$tdir"' EXIT
+  trap 'cd -; rm -rf -- "$tdir"' EXIT
 
   echo "Getting raw note from the internet"
 
