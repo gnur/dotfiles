@@ -102,7 +102,7 @@ func erwin-enc () {
 
   if [[ ! -d "$target" ]]; then
     echo "invalid directory provided"
-    exit 1
+    return 1
   fi
   du -sh "${target}"
 
@@ -120,7 +120,7 @@ func erwin-dec () {
 
   if [[ ! -f "$target" ]]; then
     echo "invalid backup archive provided"
-    exit 1
+    return 1
   fi
   age --decrypt -i ~/key.txt ${target} | lz4 -d | tar xvf -
 }
@@ -129,7 +129,7 @@ func en () {
 
   AGEKEY=age1lhg9rucza42kmmmtnthme35gw0tpeyqwxad5k7rl5mpyaqmk0q3s4srwvp
   tdir=$(mktemp -d)
-  cd "${tdir}" || exit 1
+  cd "${tdir}" || return 1
   #setup trap to remove this dir
   trap 'rm -rf -- "$tdir"' EXIT
 
@@ -141,13 +141,13 @@ func en () {
     age --decrypt --identity=$HOME/key.txt --output "note.md" note.md.age
     rm note.md.age
   else
-    echo "Failed to download file from the internet, exiting without saving"
-    exit 1
+    echo "Failed to download file from the internet, returning without saving"
+    return 1
   fi
 
   if [[ ! -e note.md ]]; then
-    echo "Decryption seems to have failed, exiting"
-    exit 2
+    echo "Decryption seems to have failed, returning"
+    return 2
   fi
   
   
@@ -156,7 +156,7 @@ func en () {
   hx note.md
   if cmp --silent note.md note.md.before; then
     echo "no changes, nothing to do"
-    exit 0
+    return 0
   fi
 
   echo "Encrypting file"
