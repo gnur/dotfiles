@@ -125,6 +125,47 @@ func erwin-dec () {
   age --decrypt -i ~/key.txt ${target} | lz4 -d | tar xvf -
 }
 
+func en () {
+
+  AGEKEY=age1lhg9rucza42kmmmtnthme35gw0tpeyqwxad5k7rl5mpyaqmk0q3s4srwvp
+  tdir=$(mktemp -d)
+  cd "${tdir}" || exit 1
+  #setup trap to remove this dir
+  trap 'rm -rf -- "$tdir"' EXIT
+
+  echo "Getting raw note from the internet"
+
+  wget -q https://dekeijzer.xyz/note.md.age
+
+  if [[ -e note.md.age ]]; then
+    age --decrypt --identity=$HOME/key.txt --output "note.md" note.md.age
+    rm note.md.age
+  else
+    echo "Failed to download file from the internet, exiting without saving"
+    exit 1
+  fi
+
+  if [[ ! -e note.md ]]; then
+    echo "Decryption seems to have failed, exiting"
+    exit 2
+  fi
+  
+  
+  cp note.md note.md.before
+
+  hx note.md
+  if cmp --silent note.md note.md.before; then
+    echo "no changes, nothing to do"
+    exit 0
+  fi
+
+  echo "Encrypting file"
+  age --recipient="${AGEKEY}" note.md > note.md.age
+
+  echo "Uploading back to uranus"
+  scp note.md.age uranus:/var/www/dekeijzer.xyz/note.md.age
+
+}
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 export EDITOR=helix
