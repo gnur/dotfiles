@@ -142,11 +142,15 @@ func en () {
     rm note.md.age
   else
     echo "Failed to download file from the internet, returning without saving"
+    cd - 
+    rm -rf -- "$tdir"
     return 1
   fi
 
   if [[ ! -e note.md ]]; then
     echo "Decryption seems to have failed, returning"
+    cd - 
+    rm -rf -- "$tdir"
     return 2
   fi
   
@@ -156,6 +160,8 @@ func en () {
   hx note.md
   if cmp --silent note.md note.md.before; then
     echo "no changes, nothing to do"
+    cd - 
+    rm -rf -- "$tdir"
     return 0
   fi
 
@@ -166,6 +172,7 @@ func en () {
   scp note.md.age uranus:/var/www/dekeijzer.xyz/note.md.age
 
   cd -
+  rm -rf -- "$tdir"
 
 }
 
