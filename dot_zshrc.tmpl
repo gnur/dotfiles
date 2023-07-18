@@ -167,24 +167,11 @@ func en () {
   echo "Encrypting file"
   age --recipient="${AGEKEY}" note.md > note.md.age
 
-  echo "Checking ssh connection to uranus"
-  if ! ssh -o ConnectTimeout=3 -q uranus.aawa.nl exit; then
-    echo "Starting socks proxy"
-    # start tailscale userspace proxy
-    tailscaled --tun=userspace-networking --socks5-server=localhost:8055 &
-    tailscale up --authkey={{ joinPath .chezmoi.sourceDir ".tailscale-auth-key.age" | include | decrypt }}
-
-    export ALL_PROXY=socks5://localhost:8055
-  fi
-
-
   echo "Uploading back to uranus"
   scp note.md.age uranus.aawa.nl:/var/www/dekeijzer.xyz/note.md.age
 
   cd -
   rm -rf -- "$tdir"
-
-  killall tailscaled
 
 }
 
