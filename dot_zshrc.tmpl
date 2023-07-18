@@ -167,7 +167,8 @@ func en () {
   echo "Encrypting file"
   age --recipient="${AGEKEY}" note.md > note.md.age
 
-  if ! ssh -q uranus.aawa.nl exit; then
+  echo "Checking ssh connection to uranus"
+  if ! ssh -o ConnectTimeout=3 -q uranus.aawa.nl exit; then
     echo "Starting socks proxy"
     # start tailscale userspace proxy
     tailscaled --tun=userspace-networking --socks5-server=localhost:1055 &
