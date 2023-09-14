@@ -35,8 +35,8 @@ if ! command -v hx &> /dev/null; then
   alias hx=helix
 fi
 
+alias s="tmux attach -d -t shell || tmux new -t shell"
 alias vi=helix
-alias z="zellij attach -c"
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
