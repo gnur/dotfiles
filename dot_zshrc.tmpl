@@ -199,6 +199,10 @@ eval "$(direnv hook zsh)"
 source "$HOME/.cargo/env"
 
 if [[ -z "$TMUX" && -z "$VSCODE_PID" ]]; then
+  if tmux has-session -t shell; then
     exec tmux attach -d -t shell
+  else
+    exec tmux new -t shell
+  fi
 fi
 
