@@ -198,4 +198,7 @@ eval "$(direnv hook zsh)"
 
 source "$HOME/.cargo/env"
 
+if [[ -z "$TMUX" && -z "$VSCODE_PID" ]]; then
+    exec tmux attach -d -t shell
+fi
 
