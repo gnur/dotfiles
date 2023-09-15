@@ -17,7 +17,7 @@ center = [ "version-control" ]
 
 [editor.lsp]
 display-inlay-hints	= true
-display-message = true
+display-messages = true
 
 [keys.normal]
 L = "goto_next_buffer"
