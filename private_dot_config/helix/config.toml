@@ -1,4 +1,4 @@
-theme = "jellybean"
+theme = "jellybeans"
 
 [editor.cursor-shape]
 insert = "bar"
