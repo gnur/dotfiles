@@ -1,4 +1,4 @@
-theme = "molokai"
+theme = "jellybean"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -8,7 +8,7 @@ select = "underline"
 [editor]
 auto-pairs = false
 auto-save = true
-bufferline = "multiple"
+bufferline = "always"
 color-modes = true
 true-color = true
 
@@ -17,6 +17,7 @@ center = [ "version-control" ]
 
 [editor.lsp]
 display-inlay-hints	= true
+display-message = true
 
 [keys.normal]
 L = "goto_next_buffer"

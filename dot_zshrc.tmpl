@@ -64,6 +64,10 @@ SAVEHIST=$HISTSIZE
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
+func mnrp() {
+  cd /Users/erwindekeijzer/code/src/github.com/gnur/mnrp
+}
+
 func ccd () {
   cd
   f=$(fd --type d --hidden | fzf --ansi --no-mouse --query "$1" --preview 'exa --long --classify --icons --no-user --no-permissions {}' --preview-window up)
