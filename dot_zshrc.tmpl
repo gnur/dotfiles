@@ -214,7 +214,12 @@ fi
 }
 
 {{ if eq .chezmoi.os "darwin" -}}
-startTmux
+parentProcess=$(ps -e | grep $PPID | grep -v grep)
+
+if ! echo $parentProcess | grep -q DevPod; then
+  startTmux
+fi
+
 
 {{else}}
 parent=$(ps -o comm= -p "$PPID")
