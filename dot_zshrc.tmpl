@@ -31,9 +31,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-if ! command -v hx &> /dev/null; then
-  alias hx=helix
-fi
 
 alias s="tmux attach -d -t shell || tmux new -t shell"
 alias vi=helix
