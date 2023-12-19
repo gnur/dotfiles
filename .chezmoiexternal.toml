@@ -2,26 +2,35 @@
 {{- $ageVersion := "1.1.1" }}
 {{- $helixVersion := "23.10"}}
 {{- $atuinVersion := "v17.1.0" }}
+{{- $starshipVersion := "v1.16.0" }}
 
 {{- $helixArch := "x86_64"}}
+{{- $atuinArch := "x86_64" }}
+{{- $starshipArch := "i686" }}
+
 {{- $helixOS := "linux"}}
 {{- $atuinOS := "unknown-linux-gnu" }}
-{{- $atuinArch := "x86_64" }}
+{{- $starshipOS := "unknown-linux-musl" }}
 
 {{- if eq .chezmoi.os "darwin" }}
 {{- $helixOS = "macos" }}
 {{- $atuinOS = "apple-darwin" }}
+{{- $starshipOS = "apple-darwin" }}
 {{- end }}
+
 {{- if eq .chezmoi.arch "arm64" }}
 {{- $atuinArch = "aarch64" }}
 {{- $helixArch = "aarch64" }}
+{{- $starshipArch = "aarch64" }}
 {{- end }}
 
 {{- $helixPackageName := printf "helix-%s-%s-%s" $helixVersion $helixArch $helixOS }}
 {{- $atuinPackageName := printf "atuin-%s-%s-%s" $atuinVersion $atuinArch $atuinOS }}
+{{- $starshipPackageName := printf "starship-%s-%s" $starshipArch $starshipOS }}
 
 {{- $helixArchiveUrl := printf "https://github.com/helix-editor/helix/releases/download/%s/%s.tar.xz" $helixVersion $helixPackageName -}}
 {{- $atuinArchiveUrl := printf "https://github.com/atuinsh/atuin/releases/download/%s/%s.tar.gz" $atuinVersion $atuinPackageName -}}
+{{- $starshipArchiveUrl := printf "https://github.com/starship/starship/releases/download/%s/%s.tar.gz" $starshipVersion $starshipPackageName -}}
 
 [".local/bin/hx"]
     type = "archive-file"
@@ -48,3 +57,9 @@
     executable = true
     path = {{printf "%s/atuin" $atuinPackageName | quote}}
     url = {{ $atuinArchiveUrl | quote }}
+
+[".local/bin/starship"]
+    type = "archive-file"
+    executable = true
+    path = "starship"
+    url = {{ $starshipArchiveUrl | quote }}
