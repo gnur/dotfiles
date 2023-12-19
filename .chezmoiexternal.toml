@@ -1,15 +1,27 @@
 
+{{- $ageVersion := "1.1.1" }}
 {{- $helixVersion := "23.10"}}
+{{- $atuinVersion := "v17.1.0" }}
+
 {{- $helixArch := "x86_64"}}
 {{- $helixOS := "linux"}}
-{{ if eq .chezmoi.os "darwin" }}
+{{- $atuinOS := "unknown-linux-gnu" }}
+{{- $atuinArch := "x86_64" }}
+
+{{- if eq .chezmoi.os "darwin" }}
 {{- $helixOS = "macos" }}
+{{- $atuinOS = "apple-darwin" }}
+{{- end }}
+{{- if eq .chezmoi.arch "arm64" }}
+{{- $atuinArch = "aarch64" }}
 {{- $helixArch = "aarch64" }}
-{{ end -}}
+{{- end }}
 
 {{- $helixPackageName := printf "helix-%s-%s-%s" $helixVersion $helixArch $helixOS }}
+{{- $atuinPackageName := printf "atuin-%s-%s-%s" $atuinVersion $atuinArch $atuinOS }}
 
 {{- $helixArchiveUrl := printf "https://github.com/helix-editor/helix/releases/download/%s/%s.tar.xz" $helixVersion $helixPackageName -}}
+{{- $atuinArchiveUrl := printf "https://github.com/atuinsh/atuin/releases/download/%s/%s.tar.gz" $atuinVersion $atuinPackageName -}}
 
 [".local/bin/hx"]
     type = "archive-file"
@@ -25,9 +37,14 @@
     ]
     url = {{ $helixArchiveUrl | quote }}
 
-{{ $ageVersion := "1.1.1" -}}
 [".local/bin/age"]
     type = "archive-file"
     url = "https://github.com/FiloSottile/age/releases/download/v{{ $ageVersion }}/age-v{{ $ageVersion }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
     path = "age/age"
 
+
+[".local/bin/atuin"]
+    type = "archive-file"
+    executable = true
+    path = {{printf "%s/atuin" $atuinPackageName | quote}}
+    url = {{ $atuinArchiveUrl | quote }}
