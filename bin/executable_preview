@@ -1,0 +1,15 @@
+#!/bin/bash
+
+f="$1"
+
+if [[ -z "$f" ]]; then
+  exit 0
+fi
+
+if [[ -d "$f" ]]; then
+  lsd "${f}"
+fi
+
+if [[ -f $f ]]; then
+  bat --color=always "${f}"
+fi

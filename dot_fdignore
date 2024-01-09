@@ -1,0 +1,18 @@
+Library
+Pictures/Photos Library.photoslibrary
+go/pkg
+bin/flutter
+bin/google-cloud-sdk
+.git.vscode
+.cargo
+.go
+.pub-cache
+.rustup
+.npm
+.cache
+.gradle
+Git
+Applications
+.npm
+.gradle
+

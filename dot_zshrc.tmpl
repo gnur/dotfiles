@@ -65,15 +65,6 @@ func mnrp() {
   cd /Users/erwindekeijzer/code/src/github.com/gnur/mnrp
 }
 
-func ccd () {
-  cd
-  f=$(fd --type d --hidden | fzf --ansi --no-mouse --query "$1" --preview 'exa --long --classify --icons --no-user --no-permissions {}' --preview-window up)
-  if [[ -z $f ]]; then
-    return
-  fi
-
-  cd "$f"
-}
 
 func vietc () {
   cd /etc
@@ -85,15 +76,8 @@ func vietc () {
   sudo helix "$f"
 }
 
-func vif () {
-  cd
-  f=$(fd --type f --hidden | fzf --ansi --no-mouse --query "$*" --preview 'bat --style=numbers --color=always {}')
-  if [[ -z $f ]]; then
-    return
-  fi
-
-  helix "$f"
-}
+export FZF_CTRL_T_COMMAND="fd --hidden"
+export FZF_CTRL_T_OPTS="--preview 'preview {}'"
 
 
 func ctrl-space() {
@@ -234,6 +218,8 @@ export EDITOR=helix
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source ellie/atuin
+znap source unixorn/fzf-zsh-plugin
+
 fpath=(~/.zsh/completion $fpath)
 
 autoload -U compinit
