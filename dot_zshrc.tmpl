@@ -30,7 +30,7 @@ export PATH="$HOME/bin/flutter/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-
+export TERM=xterm-256color
 
 alias s="tmux attach -d -t shell || tmux new -t shell"
 alias vi=helix
@@ -39,6 +39,7 @@ alias kctx=kubectx
 alias kns=kubens
 alias tf=terraform
 alias x="exa --long --classify --icons --no-user --no-permissions"
+alias ls=lsd
 
 alias agedec="age --decrypt -i ~/.agekey"
 
@@ -208,7 +209,7 @@ func en () {
 }
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
-export EDITOR=helix
+export EDITOR=hx
 
 # `znap prompt` makes your prompt visible in less than 12ms!
 # znap prompt sindresorhus/pure
