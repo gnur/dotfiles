@@ -1,33 +1,12 @@
-[colors.bright]
-black = "0x585858"
-blue = "0xffaf00"
-cyan = "0x00afaf"
-green = "0xafd700"
-magenta = "0xffaf00"
-red = "0x5faf5f"
-white = "0x5f8787"
-yellow = "0xaf87d7"
-
-[colors.cursor]
-cursor = "0xf0f0f0"
-text = "0x0c0c0c"
-
-[colors.normal]
-black = "0x0c0c0c"
-blue = "0x5fafd7"
-cyan = "0xd7875f"
-green = "0x5faf00"
-magenta = "0x808080"
-red = "0xaf005f"
-white = "0xe0e0e0"
-yellow = "0xd7af5f"
-
-[colors.primary]
-background = "0x0c0c0c"
-foreground = "0xf0f0f0"
+import = [
+    "~/.config/alacritty/themes/themes/ayu_dark.toml"
+]
 
 [font]
 size = 15.0
 
 [font.normal]
 family = "CaskaydiaCove Nerd Font"
+
+[window]
+option_as_alt = "Both"
