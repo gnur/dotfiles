@@ -233,29 +233,3 @@ eval "$(direnv hook zsh)"
 
 source "$HOME/.cargo/env"
 
-
-func startTmux () {
-if [[ -z "$TMUX" && -z "$VSCODE_PID" ]]; then
-  if tmux has-session -t shell; then
-    exec tmux attach -d -t shell
-  else
-    exec tmux new -t shell
-  fi
-fi
-}
-
-{{ if eq .chezmoi.os "darwin" -}}
-parentProcess=$(ps -e | grep $PPID | grep -v grep)
-
-if ! echo $parentProcess | grep -q DevPod; then
-  startTmux
-fi
-
-
-{{else}}
-parent=$(ps -o comm= -p "$PPID")
-if [[ "${parent}" == "ttyd" ]]; then
-  startTmux
-fi
-{{ end }}
-
