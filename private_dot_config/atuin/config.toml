@@ -26,3 +26,5 @@
 ## which search mode to use
 ## possible values: prefix, fulltext
 search_mode = "fuzzy"
+inline_height = 20
+style = "compact"

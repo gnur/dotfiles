@@ -65,13 +65,17 @@ $status\
 $shell\
 $character"""
 
+[character]
+format = '$symbol ❯ '
+error_symbol = '[I](bold red)'
+vimcmd_symbol = '[N](bold yellow)'
+success_symbol = '[I](bold green)'
+vimcmd_replace_symbol = '[R](bold purple)'
+vimcmd_visual_symbol = '[V](bold blue)'
 
 [kubernetes]
 disabled = false
 format = ' | [$symbol$context(\($namespace\))]($style) '
-
-[kubernetes.context_aliases]
-"gke_akkoordzoeker_europe-west4-a_akkoordzoeker" = "akz"
 
 [golang]
 format = " | [$symbol$version](bold cyan)"
