@@ -1,6 +1,6 @@
 
 {{- $ageVersion := "1.1.1" }}
-{{- $helixVersion := "23.10"}}
+{{- $helixVersion := "24.03"}}
 {{- $atuinVersion := "v18.0.0" }}
 {{- $starshipVersion := "v1.16.0" }}
 
