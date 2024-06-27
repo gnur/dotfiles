@@ -1,8 +1,8 @@
 
 {{- $ageVersion := "1.1.1" }}
 {{- $helixVersion := "24.03"}}
-{{- $atuinVersion := "v18.0.0" }}
-{{- $starshipVersion := "v1.16.0" }}
+{{- $atuinVersion := "v18.3.0" }}
+{{- $starshipVersion := "v1.19.0" }}
 
 {{- $helixArch := "x86_64"}}
 {{- $atuinArch := "x86_64" }}
