@@ -1,0 +1,20 @@
+[tools]
+bat = "latest"
+fd = "latest"
+fzf = "latest"
+direnv = "latest"
+lazygit = "latest"
+lsd = "latest"
+neovim = "0.10.0"
+node = "20"
+ripgrep = "latest"
+starship = "latest"
+xh = "latest"
+zellij = "latest"
+zoxide = "latest"
+task = "latest"
+k9s = "latest"
+helix = "latest"
+
+[settings]
+http_timeout = 120
