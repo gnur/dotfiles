@@ -1,6 +1,5 @@
 [tools]
 age = "latest"
-age-plugin-yubikey = "latest"
 bat = "latest"
 fd = "latest"
 fzf = "latest"
