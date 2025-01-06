@@ -17,5 +17,3 @@ task = "latest"
 k9s = "latest"
 helix = "latest"
 
-[settings]
-http_timeout = 120
